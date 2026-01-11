@@ -1,0 +1,22 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
+import MapView from "@/components/MapView";
+
+export default function Dashboard() {
+  const [data, setData] = useState<any[]>([]);
+
+  useEffect(() => {
+    supabase.from("waste_reports").select("*").then(({ data }) => {
+      setData(data || []);
+    });
+  }, []);
+
+  return (
+    <main style={{ padding: 20 }}>
+      <h1>🗺️ Waste Dashboard</h1>
+      <MapView points={data} />
+    </main>
+  );
+}

@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "GreenPath",
-  description: "Smart Waste Routing App",
+  description: "Smart Waste Routing App"
 };
 
 export default function RootLayout({ children }) {
